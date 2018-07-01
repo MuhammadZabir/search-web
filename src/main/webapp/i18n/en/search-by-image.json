@@ -1,0 +1,10 @@
+{
+    "searchByImage": {
+        "home": {
+            "title": "Search By Image",
+            "fileToUpload": "File to upload: ",
+            "dropFile": "or drop your files here",
+            "search": "Search"
+        }
+    }
+}

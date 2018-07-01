@@ -1,0 +1,51 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col text-center">
+            <form #searchByImageForm="ngForm">
+                <fieldset>
+                    <legend jhiTranslate="searchByImage.home.title">Search By Image</legend>
+
+                    <input type="hidden" id="MAX_FILE_SIZE" name="MAX_FILE_SIZE" value="300000" />
+
+                    <div class="row" *ngIf="!image">
+                        <div class="col">
+                            <label for="fileSelect">
+                                <span jhiTranslate="searchByImage.home.fileToUpload">Files to upload:</span>
+                            </label>
+                            <input type="file" id="fileSelect" name="fileSelect" (change)="fileSelectHandler($event)"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div *ngIf="droppable && !image" class="file-drag" id="fileDrag" name="fileDrag"
+                                (dragover)="fileDragHover($event)" (dragleave)="fileDragHover($event)"
+                                (drop)="fileSelectHandler($event)">
+                                <span jhiTranslate="searchByImage.home.dropFile">or drop files here</span>
+                            </div>
+                            <img *ngIf="image" class="file-show" src="{{image}}" name="image" id="image">
+                        </div>
+                    </div>
+
+                    <div id="submitbutton">
+                        <button type="submit">
+                            <span jhiTranslate="searchByImage.home.search" type="button" (click)="searchByImage()">Search</span>
+                        </button>
+                    </div>
+
+                </fieldset>
+
+            </form>
+
+            <div *ngIf="messages" class="row">
+                <div class="col">
+                    <p>{{messages}}</p>
+                </div>
+            </div>
+            <div *ngIf="result" class="row">
+                <div *ngFor="let res of result; let i = index" class="col-3">
+                    <img class="result-show" [src]="res" name="result-{{i}}" name="result-{{i}}">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
