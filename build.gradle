@@ -68,6 +68,12 @@ springBoot {
     buildInfo()
 }
 
+processResources {
+  doLast {
+    if (!new File("$buildDir/www").exists()) webpackBuildDev.exec()
+  }
+}
+
 if (OperatingSystem.current().isWindows()) {
     // https://stackoverflow.com/questions/40037487/the-filename-or-extension-is-too-long-error-using-gradle
     task classpathJar(type: Jar) {

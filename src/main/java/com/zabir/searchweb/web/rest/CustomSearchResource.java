@@ -44,9 +44,6 @@ public class CustomSearchResource {
         log.debug("REST request search by image");
 
         Map<String, Integer> goodMatchAchieve = new HashMap<>();
-        int nrOctaves = 4;
-        int nrIntervals = 2;
-        int nrOfKeyPoints = 0;
 
         List<File> allFiles = null;
         try {
@@ -66,8 +63,8 @@ public class CustomSearchResource {
                 }
             }
         } catch (IOException e){
-            e.printStackTrace();;
-            ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
 
         Map<String, Integer> goodMatchAchieveSorted = goodMatchAchieve.entrySet().stream()
@@ -91,6 +88,39 @@ public class CustomSearchResource {
         return ResponseEntity.ok().body(resource);
     }
 
+    @GetMapping("/by-text/{search}")
+    @Timed
+    public ResponseEntity<List<String>> searchByText(@PathVariable("search") String search) {
+        List<String> directories = new ArrayList<>();
+        try {
+            List<Path> paths = getAllFoldersInDir("/images");
+            List<String> names = new ArrayList<>();
+            for (Path path : paths) {
+                String name = path.toFile().getName();
+                if (name.toLowerCase().contains(search.toLowerCase())) {
+                    names.add(name);
+                }
+            }
+            if (names.isEmpty()) {
+                return ResponseEntity.ok().build();
+            }
+            List<File> truePaths = new ArrayList<>();
+            for (String name : names) {
+                truePaths.addAll(getAllFilesInDir("/images/" + name));
+            }
+
+            for (File file: truePaths) {
+                directories.add(file.getAbsolutePath());
+            }
+
+        } catch(IOException e) {
+            e.printStackTrace();;
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+
+        return ResponseUtil.wrapOrNotFound(Optional.ofNullable(directories));
+    }
+
     private File multipartToFile(MultipartFile imageFile) throws IOException {
         File file = new File(imageFile.getOriginalFilename());
         file.createNewFile();
@@ -110,5 +140,13 @@ public class CustomSearchResource {
         }
 
         return files;
+    }
+
+    private List<Path> getAllFoldersInDir(String dir) throws IOException {
+        List<File> files = new ArrayList<>();
+        try (Stream<Path> allPaths = Files.walk(Paths.get(System.getProperty("user.dir") + dir))) {
+            List<Path> filePaths = allPaths.filter(path -> !Files.isRegularFile(path)).collect(Collectors.toList());
+            return filePaths;
+        }
     }
 }
