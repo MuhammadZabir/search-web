@@ -1,0 +1,31 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col text-center">
+            <fieldset>
+                <legend jhiTranslate="searchByText.home.title">Search By Text</legend>
+
+                <div class="row">
+                    <div class="col-sm-12 no-padding-right">
+                        <form name="searchForm" class="form-inline">
+                            <div class="input-group w-100 mt-3">
+                                <input title="Search for rate cards" type="text" class="form-control" [(ngModel)]="currentSearch"
+                                        id="currentSearch" name="currentSearch">
+                                <button class="input-group-addon btn btn-info" (click)="searchByText()">
+                                    <fa-icon [icon]="'search'"></fa-icon>
+                                </button>
+                                <button class="input-group-addon btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                                    <fa-icon [icon]="'times'"></fa-icon>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </fieldset>
+            <div *ngIf="result" class="row">
+                <div *ngFor="let res of result; let i = index" class="col-3">
+                    <img class="result-show" [src]="res" name="result-{{i}}" name="result-{{i}}">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

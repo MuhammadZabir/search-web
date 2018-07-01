@@ -8,10 +8,15 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class SearchByImageService {
     private resourceSearchImageUrl = '/api/search/by-image';
     private resourceGetImageUrl = '/api/search/get-image';
+    private resourceSearchTextUrl = '/api/search/by-text';
     constructor(private httpClient: HttpClient, private domSanitizer: DomSanitizer) {}
 
     searchByImage(formData: FormData) {
         return this.httpClient.post<string[]>(this.resourceSearchImageUrl, formData, { observe: 'response' });
+    }
+
+    searchByText(search) {
+        return this.httpClient.get<string[]>(`${this.resourceSearchTextUrl}/${search}`, { observe: 'response' });
     }
 
     getImage(directory: string): Observable<any> {

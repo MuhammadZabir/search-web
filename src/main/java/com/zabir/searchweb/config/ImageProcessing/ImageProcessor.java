@@ -133,7 +133,7 @@ public class ImageProcessor {
         }
 
         this.myKpL = generateHistogram(this.myKpL, this.direction, this.magnitude);
-        this.openKpL = extraxtKeyPoints(this.myKpL);
+        this.openKpL = extractKeyPoints(this.myKpL);
         this.Rbarrier = reduceKP(this.openKpL);
         extractDescriptor(this.myKpL);
 
@@ -261,7 +261,7 @@ public class ImageProcessor {
         return in;
     }
 
-    public ArrayList<ArrayList<ArrayList<KeyPoint>>> extraxtKeyPoints(ArrayList<ArrayList<ArrayList<MyKeyPoint>>> m) {
+    public ArrayList<ArrayList<ArrayList<KeyPoint>>> extractKeyPoints(ArrayList<ArrayList<ArrayList<MyKeyPoint>>> m) {
         ArrayList<KeyPoint> temp = new <KeyPoint>ArrayList();
         ArrayList<ArrayList<ArrayList<KeyPoint>>> returnValue = new <ArrayList<ArrayList<KeyPoint>>>ArrayList();
         int rejected = 0;

@@ -65,7 +65,8 @@ public class FeatureDescriptionImage {
         // Draw good matches (i.e. distance < 3*min_dist )
         List<DMatch> goodMatchesList = new ArrayList<DMatch>();
         for (int i = 0; i < matches.rows(); i++) {
-            if (matches.toArray()[i].distance <= 3 * minDist)
+            double acceptableDist = (minDist * 3) > maxDist ? maxDist : (minDist * 3);
+            if (matches.toArray()[i].distance <= acceptableDist)
                 goodMatchesList.add(matches.toArray()[i]);
         }
         goodMatches.fromList(goodMatchesList);

@@ -4,7 +4,9 @@ import com.codahale.metrics.annotation.Timed;
 import com.zabir.searchweb.config.ImageProcessing.FeatureDescriptionImage;
 import com.zabir.searchweb.config.ImageProcessing.FeatureExtractionImage;
 import com.zabir.searchweb.config.ImageProcessing.FeatureExtractionImage2;
+import com.zabir.searchweb.config.ImageProcessing.MyKeyPoint;
 import io.github.jhipster.web.util.ResponseUtil;
+import org.opencv.features2d.KeyPoint;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.io.FileSystemResource;
@@ -42,6 +44,9 @@ public class CustomSearchResource {
         log.debug("REST request search by image");
 
         Map<String, Integer> goodMatchAchieve = new HashMap<>();
+        int nrOctaves = 4;
+        int nrIntervals = 2;
+        int nrOfKeyPoints = 0;
 
         List<File> allFiles = null;
         try {
@@ -50,12 +55,14 @@ public class CustomSearchResource {
             allFiles = getAllFilesInDir("/images");
 
             FeatureExtractionImage firstExtraction = new FeatureExtractionImage(searchImage.getAbsolutePath());
+            double acceptableAmount = firstExtraction.getKeyPoints().toArray().length * 0.5;
             for (File file : allFiles) {
                 FeatureExtractionImage secondExtraction = new FeatureExtractionImage(file.getAbsolutePath());
 
                 FeatureDescriptionImage compute = new FeatureDescriptionImage(firstExtraction, secondExtraction);
-                    if (compute.getGoodMatches().toArray().length > 150) {
-                        goodMatchAchieve.put(file.getAbsolutePath(), compute.getGoodMatches().toArray().length);
+
+                if (compute.getGoodMatches().toArray().length > acceptableAmount) {
+                    goodMatchAchieve.put(file.getAbsolutePath(), compute.getGoodMatches().toArray().length);
                 }
             }
         } catch (IOException e){

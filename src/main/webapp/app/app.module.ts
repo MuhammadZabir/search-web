@@ -17,6 +17,7 @@ import { SearchWebHomeModule } from './home/home.module';
 import { SearchWebAccountModule } from './account/account.module';
 import { SearchWebEntityModule } from './entities/entity.module';
 import { SearchByImageModule } from './custom/search-by-image/search-by-image.module';
+import { SearchByTextModule } from './custom/search-by-text/search-by-text.module';
 // jhipster-needle-angular-add-module-import JHipster will add new module here
 import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent, ActiveMenuDirective, ErrorComponent } from './layouts';
 
@@ -30,7 +31,8 @@ import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent
         SearchWebHomeModule,
         SearchWebAccountModule,
         SearchWebEntityModule,
-        SearchByImageModule
+        SearchByImageModule,
+        SearchByTextModule
         // jhipster-needle-angular-add-module JHipster will add new module here
     ],
     declarations: [JhiMainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, ActiveMenuDirective, FooterComponent],
