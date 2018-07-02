@@ -40,6 +40,7 @@ public class CacheConfiguration {
             cm.createCache(com.zabir.searchweb.repository.UserRepository.USERS_BY_EMAIL_CACHE, jcacheConfiguration);
             cm.createCache(com.zabir.searchweb.domain.User.class.getName(), jcacheConfiguration);
             cm.createCache(com.zabir.searchweb.domain.Authority.class.getName(), jcacheConfiguration);
+            cm.createCache(com.zabir.searchweb.domain.Herb.class.getName(), jcacheConfiguration);
             cm.createCache(com.zabir.searchweb.domain.User.class.getName() + ".authorities", jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };

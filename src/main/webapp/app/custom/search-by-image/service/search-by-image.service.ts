@@ -3,6 +3,7 @@ import { HttpClient, HttpEvent, HttpEventType, HttpRequest, HttpResponse } from 
 import { Observable } from 'rxjs/Observable';
 import { ResponseWrapper } from '../../../shared/model/response-wrapper.model';
 import { DomSanitizer } from '@angular/platform-browser';
+import { ImageSearchDTO } from 'app/custom/search-by-image/model/imageSearchDTO.model';
 
 @Injectable()
 export class SearchByImageService {
@@ -12,11 +13,11 @@ export class SearchByImageService {
     constructor(private httpClient: HttpClient, private domSanitizer: DomSanitizer) {}
 
     searchByImage(formData: FormData) {
-        return this.httpClient.post<string[]>(this.resourceSearchImageUrl, formData, { observe: 'response' });
+        return this.httpClient.post<ImageSearchDTO>(this.resourceSearchImageUrl, formData, { observe: 'response' });
     }
 
     searchByText(search) {
-        return this.httpClient.get<string[]>(`${this.resourceSearchTextUrl}/${search}`, { observe: 'response' });
+        return this.httpClient.get<ImageSearchDTO>(`${this.resourceSearchTextUrl}/${search}`, { observe: 'response' });
     }
 
     getImage(directory: string): Observable<any> {

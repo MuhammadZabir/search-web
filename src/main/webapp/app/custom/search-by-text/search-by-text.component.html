@@ -21,6 +21,23 @@
                     </div>
                 </div>
             </fieldset>
+            <div *ngIf="herb">
+                <div class="row">
+                    <div class="col">
+                        <strong jhiTranslate="searchByText.home.name">Name : </strong><span>{{herb.name}}</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <strong jhiTranslate="searchByText.home.description">Description</strong>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <span>{{herb.description}}</span>
+                    </div>
+                </div>
+            </div>
             <div *ngIf="result" class="row">
                 <div *ngFor="let res of result; let i = index" class="col-3">
                     <img class="result-show" [src]="res" name="result-{{i}}" name="result-{{i}}">

@@ -2,7 +2,9 @@
     "searchByText": {
         "home": {
             "title": "Search By Text",
-            "search": "Search"
+            "search": "Search",
+            "name": "Name",
+            "description": "Description"
         }
     }
 }

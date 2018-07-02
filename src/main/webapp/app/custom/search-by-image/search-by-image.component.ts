@@ -3,6 +3,8 @@ import { Image } from './model/image.model';
 import { JhiLanguageHelper } from 'app/core';
 import { HttpResponse } from '@angular/common/http';
 import { SearchByImageService } from './service/search-by-image.service';
+import { ImageSearchDTO } from 'app/custom/search-by-image/model/imageSearchDTO.model';
+import { Herb } from 'app/custom/search-by-image/model/herb.model';
 
 @Component({
     selector: 'jhi-search-by-image',
@@ -15,6 +17,7 @@ export class SearchByImageComponent implements OnInit {
     messages: string;
     image: any;
     result: any[];
+    herb: Herb;
 
     constructor(private languageHelper: JhiLanguageHelper, private searchByImageService: SearchByImageService) {}
 
@@ -59,8 +62,9 @@ export class SearchByImageComponent implements OnInit {
         if (this.imageToBeSearch) {
             formData.append('imageFile', this.imageToBeSearch.file);
             formData.append('filename', this.imageToBeSearch.filename);
-            this.searchByImageService.searchByImage(formData).subscribe((response: HttpResponse<string[]>) => {
-                const directories: string[] = response.body;
+            this.searchByImageService.searchByImage(formData).subscribe((response: HttpResponse<ImageSearchDTO>) => {
+                const directories: string[] = response.body.directories;
+                this.herb = response.body.herb;
                 this.result = [];
                 for (let directory of directories) {
                     this.searchByImageService.getImage(directory).subscribe(result => {
