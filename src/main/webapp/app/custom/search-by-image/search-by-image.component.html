@@ -22,7 +22,8 @@
                                 (drop)="fileSelectHandler($event)">
                                 <span jhiTranslate="searchByImage.home.dropFile">or drop files here</span>
                             </div>
-                            <img *ngIf="image" class="file-show" src="{{image}}" name="image" id="image">
+                            <img *ngIf="image" class="file-show" (dragover)="fileDragHover($event)" (dragleave)="fileDragHover($event)"
+                            (drop)="fileSelectHandler($event)" src="{{image}}" name="image" id="image">
                         </div>
                     </div>
 

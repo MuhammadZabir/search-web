@@ -20,6 +20,7 @@ import { SearchByImageModule } from './custom/search-by-image/search-by-image.mo
 import { SearchByTextModule } from './custom/search-by-text/search-by-text.module';
 // jhipster-needle-angular-add-module-import JHipster will add new module here
 import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent, ActiveMenuDirective, ErrorComponent } from './layouts';
+import { HerbModule } from './custom/herb/herb.module';
 
 @NgModule({
     imports: [
@@ -32,7 +33,8 @@ import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent
         SearchWebAccountModule,
         SearchWebEntityModule,
         SearchByImageModule,
-        SearchByTextModule
+        SearchByTextModule,
+        HerbModule
         // jhipster-needle-angular-add-module JHipster will add new module here
     ],
     declarations: [JhiMainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, ActiveMenuDirective, FooterComponent],

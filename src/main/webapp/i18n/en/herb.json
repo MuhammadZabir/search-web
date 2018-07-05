@@ -1,0 +1,24 @@
+
+{
+    "searchWebApp": {
+        "herb" : {
+            "home": {
+                "title": "Herbs",
+                "createLabel": "Create a new Herb",
+                "createOrEditLabel": "Create or edit a Herb",
+                "search": "Search for Herb"
+            },
+            "created": "A new Herb is created with identifier {{ param }}",
+            "updated": "A Herb is updated with identifier {{ param }}",
+            "deleted": "A Herb is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Herb {{ id }}?"
+            },
+            "detail": {
+                "title": "Herb"
+            },
+            "name": "Name",
+            "description": "Description"
+        }
+    }
+}

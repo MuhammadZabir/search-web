@@ -1,0 +1,24 @@
+
+{
+    "searchWebApp": {
+        "herb" : {
+            "home": {
+                "title": "Herbs",
+                "createLabel": "Buat Herb baru",
+                "createOrEditLabel": "Buat atau edit Herb",
+                "search": "Cari Herb"
+            },
+            "created": "Herb dengan id {{ param }} telah dibuat",
+            "updated": "Herb dengan id {{ param }} telah diperbaharui",
+            "deleted": "Herb dengan id {{ param }} telah dihapus",
+            "delete": {
+                "question": "Apakah anda yakin ingin menghapus Herb {{ id }}?"
+            },
+            "detail": {
+                "title": "Herb"
+            },
+            "name": "Name",
+            "description": "Description"
+        }
+    }
+}
