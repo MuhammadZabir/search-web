@@ -59,10 +59,13 @@
                     </div>
                 </div>
             </div>
-            <div *ngIf="result" class="row">
-                <div *ngIf="loading" class="col">
+            <div *ngIf="loading" class="row">
+                <div class="col">
                     <fa-icon [icon]="'leaf'" [spin]="true"></fa-icon>
+                    <span jhiTranslate="searchByImage.home.pleaseWait">Please Wait</span>
                 </div>
+            </div>
+            <div *ngIf="result" class="row">
                 <div *ngFor="let res of result; let i = index" class="col-3">
                     <img class="result-show" [src]="res" name="result-{{i}}" name="result-{{i}}">
                 </div>

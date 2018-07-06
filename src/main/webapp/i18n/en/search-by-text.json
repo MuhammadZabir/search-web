@@ -3,8 +3,9 @@
         "home": {
             "title": "Search By Text",
             "search": "Search",
-            "name": "Name",
-            "description": "Description"
+            "name": "Name : ",
+            "description": "Description",
+            "pleaseWait": "Please Wait"
         }
     }
 }

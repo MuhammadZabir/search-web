@@ -5,8 +5,9 @@
             "fileToUpload": "File to upload: ",
             "dropFile": "or drop your files here",
             "search": "Search",
-            "name": "Name",
-            "description": "Description"
+            "name": "Name : ",
+            "description": "Description",
+            "pleaseWait": "Please Wait"
         }
     }
 }

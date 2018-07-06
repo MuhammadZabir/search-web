@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { SearchByImageComponent } from './search-by-image.component';
 import { SearchByImageService } from './service/search-by-image.service';
+import { SearchWebSharedLibsModule } from '../../shared';
 
 // @Injectable()
 // export class SearchByImageResolvePagingParams implements Resolve<any> {
@@ -38,7 +39,7 @@ const ROUTES: Routes = [
 ];
 
 @NgModule({
-    imports: [CommonModule, FormsModule, HttpClientModule, RouterModule.forRoot(ROUTES, { useHash: true })],
+    imports: [SearchWebSharedLibsModule, CommonModule, FormsModule, HttpClientModule, RouterModule.forRoot(ROUTES, { useHash: true })],
     providers: [SearchByImageService],
     declarations: [SearchByImageComponent]
 })

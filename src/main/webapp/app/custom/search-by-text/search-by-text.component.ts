@@ -15,10 +15,12 @@ export class SearchByTextComponent {
     result: any[];
     currentSearch: string;
     herb: Herb;
+    loading: boolean = false;
 
     constructor(private languageHelper: JhiLanguageHelper, private searchByImageService: SearchByImageService) {}
 
     searchByText() {
+        this.loading = true;
         const formData = new FormData();
 
         if (this.currentSearch) {
@@ -26,6 +28,7 @@ export class SearchByTextComponent {
                 const directories: string[] = response.body.directories;
                 this.herb = response.body.herb;
                 this.result = [];
+                this.loading = false;
                 for (let directory of directories) {
                     this.searchByImageService.getImage(directory).subscribe(result => {
                         this.result.push(result);
