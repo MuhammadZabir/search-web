@@ -60,6 +60,9 @@
                 </div>
             </div>
             <div *ngIf="result" class="row">
+                <div *ngIf="loading" class="col">
+                    <fa-icon [icon]="'leaf'" [spin]="true"></fa-icon>
+                </div>
                 <div *ngFor="let res of result; let i = index" class="col-3">
                     <img class="result-show" [src]="res" name="result-{{i}}" name="result-{{i}}">
                 </div>

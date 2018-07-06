@@ -18,6 +18,7 @@ export class SearchByImageComponent implements OnInit {
     image: any;
     result: any[];
     herb: Herb;
+    loading = false;
 
     constructor(private languageHelper: JhiLanguageHelper, private searchByImageService: SearchByImageService) {}
 
@@ -57,6 +58,7 @@ export class SearchByImageComponent implements OnInit {
     }
 
     searchByImage() {
+        this.loading = true;
         const formData = new FormData();
 
         if (this.imageToBeSearch) {
@@ -66,6 +68,7 @@ export class SearchByImageComponent implements OnInit {
                 const directories: string[] = response.body.directories;
                 this.herb = response.body.herb;
                 this.result = [];
+                this.loading = true;
                 for (let directory of directories) {
                     this.searchByImageService.getImage(directory).subscribe(result => {
                         this.result.push(result);
