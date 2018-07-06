@@ -3,7 +3,7 @@ import { HttpResponse } from '@angular/common/http';
 import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot, Routes } from '@angular/router';
 import { UserRouteAccessService } from 'app/core';
 import { Observable } from 'rxjs';
-import { Herb } from '../search-by-image/model/herb.model';
+import { Herb } from '../herb/model/herb.model';
 import { HerbService } from './service/herb.service';
 import { HerbComponent } from './herb.component';
 import { HerbViewComponent } from './view/herb-view.component';

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { Herb } from '../../search-by-image/model/herb.model';
+import { Herb } from '../../herb/model/herb.model';
 
 @Component({
     selector: 'jhi-herb-view',

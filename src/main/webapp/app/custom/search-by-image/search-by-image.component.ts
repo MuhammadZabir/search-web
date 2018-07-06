@@ -4,7 +4,7 @@ import { JhiLanguageHelper } from 'app/core';
 import { HttpResponse } from '@angular/common/http';
 import { SearchByImageService } from './service/search-by-image.service';
 import { ImageSearchDTO } from 'app/custom/search-by-image/model/imageSearchDTO.model';
-import { Herb } from 'app/custom/search-by-image/model/herb.model';
+import { Herb } from '../herb/model/herb.model';
 
 @Component({
     selector: 'jhi-search-by-image',

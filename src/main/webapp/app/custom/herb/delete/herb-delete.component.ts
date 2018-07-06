@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { NgbActiveModal, NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { JhiEventManager } from 'ng-jhipster';
 
-import { Herb } from '../../search-by-image/model/herb.model';
+import { Herb } from '../../herb/model/herb.model';
 import { HerbService } from '../service/herb.service';
 
 @Component({
