@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 
 import { SERVER_API_URL } from 'app/app.constants';
 import { createRequestOption } from 'app/shared';
-import { Herb } from '../../search-by-image/model/herb.model';
+import { Herb } from '../../herb/model/herb.model';
 
 type EntityResponseType = HttpResponse<Herb>;
 type EntityArrayResponseType = HttpResponse<Herb[]>;

@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-import { Herb } from '../../search-by-image/model/herb.model';
+import { Herb } from '../../herb/model/herb.model';
 import { HerbService } from '../service/herb.service';
 
 @Component({

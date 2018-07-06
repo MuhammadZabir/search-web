@@ -1,11 +1,11 @@
 {
     "home": {
-        "title": "Welcome, Java Hipster!",
-        "subtitle": "This is your homepage",
+        "title": "Welcome to Malaysian Herbs Website!",
+        "subtitle": "This is malaysian herbs homepage",
         "logged": {
             "message": "You are logged in as user \"{{username}}\"."
         },
-        "question": "If you have any question on JHipster:",
+        "question": "If you have any question on JHipster: Please contact +60-137772113 or +60-12757234",
         "link": {
             "homepage": "JHipster homepage",
             "stackoverflow": "JHipster on Stack Overflow",
@@ -13,7 +13,7 @@
             "chat": "JHipster public chat room",
             "follow": "follow @java_hipster on Twitter"
         },
-        "like": "If you like JHipster, don't forget to give us a star on",
+        "like": "If you like Us, don't forget to give us full mark",
         "github": "GitHub"
     }
 }
