@@ -7,7 +7,7 @@ Initiate :
 
 - Make sure MySQL service is running
 - Go to '/elasticsearch-5.6.5/bin' and run 'elasticsearch.bat'
-- Run 'Start.bat'
+- Run 'gradlew'
 - Wait for the SearchWeb application until it comes out :
 	----------------------------------------------------------
         	Application 'SearchWeb' is running! Access URLs:
