@@ -1,4 +1,8 @@
 # SearchWeb
+
+Is a simple web application that is trying to implement Search By Image using SIFT and FLANN. The theme for this web application is Herb.
+
+
 Before Start :
 
 - Install MySQL version 8 into the machine and create a schema name 'searchweb'. Make sure the username and password to be both 'root'
